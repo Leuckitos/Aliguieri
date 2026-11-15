@@ -193,3 +193,49 @@ window.addEventListener(
     verificarFimDaPagina,
     { passive: true }
 );
+
+const invasionContinue = document.querySelector(".invasion-continue");
+
+if (invasionContinue) {
+
+    invasionContinue.addEventListener("click", (event) => {
+
+        event.preventDefault();
+
+        const terminalUrl =
+            invasionContinue.getAttribute("href") || "terminal.html";
+
+        const terminalWindow = window.open(terminalUrl, "_blank");
+
+        if (!terminalWindow) {
+
+            const aviso = invasion
+                ? invasion.querySelector(".invasion-message small")
+                : null;
+
+            if (aviso) {
+                aviso.textContent =
+                    "O navegador bloqueou a nova aba. Permita pop-ups e clique novamente.";
+            }
+
+            return;
+        }
+
+        // Libera a homepage para o jogador continuar investigando.
+        if (invasion) {
+            invasion.classList.remove(
+                "active",
+                "glitch",
+                "flash"
+            );
+        }
+
+        try {
+            terminalWindow.focus();
+        } catch (error) {
+            // O terminal continua aberto mesmo sem receber foco.
+        }
+
+    });
+
+}

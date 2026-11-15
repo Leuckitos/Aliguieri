@@ -2562,7 +2562,7 @@
                 respostas: ["nos", "nós"],
                 dicas: [
                     "Compare a frase que aparece na homepage com o que ficou registrado no código-fonte.",
-                    "Abra o código-fonte de homepage.html e procure o comentário junto à frase do futuro."
+                    "Abra o código-fonte de index.html e procure o comentário junto à frase do futuro."
                 ],
                 sucesso: `Nós. A frase pública foi alterada, mas a versão anterior sobreviveu.<br><br><span class="yellow">IDENTIDADE 02 // OS PRINCÍPIOS</span><br>A Aliguiere anuncia seus princípios como parte da própria identidade. Não conte os números decorativos da página inteira: procure a seção chamada “Nossos propósitos”. Quantos princípios estão listados ali?`,
                 erro: "A frase visível não conta a história inteira. Há uma diferença entre o que foi publicado e o que ficou no código."
@@ -2753,10 +2753,7 @@
             video.autoplay = false;
             video.controls = true;
             video.playsInline = true;
-            video.preload = "auto";
-            video.muted = false;
-            video.defaultMuted = false;
-            video.volume = 1;
+            video.preload = "metadata";
             video.setAttribute("controlsList", "nodownload");
 
             const etiqueta = document.createElement("div");
@@ -2969,7 +2966,8 @@
             enviarMensagem();
         });
 
-
+        // O formulário já trata Enter pelo submit. Este listener antigo foi removido
+        // para evitar envio duplicado e corrigir o token solto que quebrava o JavaScript.
         setTimeout(() => {
             if (messageInput) messageInput.focus();
         }, 5000);
