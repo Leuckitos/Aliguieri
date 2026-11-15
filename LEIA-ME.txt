@@ -1,0 +1,25 @@
+ALIGUIERE ARG — VERSÃO COM PROGRESSÃO E FINAIS
+
+ARQUIVOS
+- homepage.html: página institucional da Aliguieri.
+- stylehome.css: estilos da homepage e propriedade CSS usada no último enigma.
+- script.js: interações da homepage e registro numérico do enigma ASCII.
+- aliguiere-ai.html: página da IA, sequência falada e registros de investigação.
+- terminal.html: canal privado, desafios, contagem de erros e finais.
+
+COMO EXECUTAR
+1. Extraia todos os arquivos para a mesma pasta.
+2. Abra homepage.html em um navegador moderno.
+3. O botão “Conhecer a Aliguiere AI” abre a página da IA; o link “voltar ao site” retorna à homepage.
+4. Role até o fim da homepage e clique em ENTRAR NO CANAL PRIVADO quando a tela de conexão aparecer.
+
+PROGRESSÃO
+- 10 desafios: 3 confirmações de identidade + 7 investigações.
+- As respostas aceitas continuam baseadas no material da lore e nos registros espalhados pelas páginas.
+- Após a primeira resposta errada em cada etapa, aparece uma pista; após a segunda, aparece uma orientação mais específica.
+- 0 a 4 erros no total: GOOD ENDING.
+- 5 ou mais erros no total: BAD ENDING.
+- Não há bloqueio ou penalidade persistente. O jogador sempre pode concluir a investigação e ver um dos finais.
+
+OBSERVAÇÃO
+As respostas precisam ser validadas pelo JavaScript do terminal, então a lista de respostas aceitas permanece no código de terminal.html. Os registros/pistas investigáveis foram deslocados para homepage.html, script.js, stylehome.css e aliguiere-ai.html.

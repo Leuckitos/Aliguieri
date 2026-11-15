@@ -1,0 +1,2981 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        CONTATO_DESCONHECIDO // CANAL PRIVADO
+    </title>
+
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        /* =========================================================
+           VARIÁVEIS
+        ========================================================= */
+
+        :root {
+
+            --bg: #020402;
+
+            --panel: #070b07;
+
+            --panel-dark: #050805;
+
+            --panel-light: #0b120b;
+
+            --green: #6cff8b;
+
+            --green-bright: #a4ffb6;
+
+            --green-dark: #2e7d3f;
+
+            --red: #ff4d4d;
+
+            --yellow: #ffd84d;
+
+            --blue: #6aa9ff;
+
+            --text: #c8d8c8;
+
+            --muted: #647164;
+
+            --border: #1c2d1e;
+
+            --border-light: #304832;
+
+        }
+
+
+        /* =========================================================
+           BODY
+        ========================================================= */
+
+        html,
+        body {
+
+            width: 100%;
+
+            height: 100%;
+
+        }
+
+
+        body {
+
+            background:
+
+                radial-gradient(
+                    ellipse at center,
+                    #101810 0%,
+                    #050805 55%,
+                    #010201 100%
+                );
+
+            color: var(--text);
+
+            font-family:
+                "Courier New",
+                Courier,
+                monospace;
+
+            overflow: hidden;
+
+        }
+
+
+        /* =========================================================
+           CRT
+        ========================================================= */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 9999;
+
+            background:
+
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.025
+                    ) 0px,
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.025
+                    ) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 9998;
+
+            background:
+
+                radial-gradient(
+                    ellipse at center,
+                    transparent 45%,
+                    rgba(
+                        0,
+                        0,
+                        0,
+                        0.7
+                    ) 100%
+                );
+
+        }
+
+
+        /* =========================================================
+           BOOT / INVASÃO
+        ========================================================= */
+
+        #bootSequence {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: #000;
+
+            z-index: 20000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            opacity: 1;
+
+            transition:
+                opacity 0.7s ease;
+
+        }
+
+
+        #bootSequence::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(
+                        108,
+                        255,
+                        139,
+                        0.035
+                    ) 0px,
+                    rgba(
+                        108,
+                        255,
+                        139,
+                        0.035
+                    ) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+
+        }
+
+
+        #bootSequence::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                radial-gradient(
+                    ellipse at center,
+                    transparent 30%,
+                    #000 100%
+                );
+
+        }
+
+
+        .boot-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: min(
+                900px,
+                80vw
+            );
+
+            font-size: 19px;
+
+            line-height: 1.9;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .boot-line {
+
+            opacity: 0;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .boot-line.green {
+
+            color: var(--green);
+
+        }
+
+
+        .boot-line.red {
+
+            color: var(--red);
+
+        }
+
+
+        .boot-line.yellow {
+
+            color: var(--yellow);
+
+        }
+
+
+        .boot-glitch {
+
+            animation:
+                bootGlitch
+                0.12s
+                infinite;
+
+        }
+
+
+        @keyframes bootGlitch {
+
+            0% {
+
+                transform:
+                    translate(0);
+
+                opacity: 1;
+
+            }
+
+            20% {
+
+                transform:
+                    translate(-5px, 1px);
+
+                opacity: 0.8;
+
+            }
+
+            40% {
+
+                transform:
+                    translate(5px, -1px);
+
+                opacity: 0.9;
+
+            }
+
+            60% {
+
+                transform:
+                    translate(-2px, 2px);
+
+                opacity: 0.7;
+
+            }
+
+            80% {
+
+                transform:
+                    translate(3px, 0);
+
+                opacity: 1;
+
+            }
+
+            100% {
+
+                transform:
+                    translate(0);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           FLASH
+        ========================================================= */
+
+        #bootFlash {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: #dffff0;
+
+            z-index: 21000;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+        }
+
+
+        #bootFlash.flash {
+
+            animation:
+                bootFlash
+                0.3s
+                ease;
+
+        }
+
+
+        @keyframes bootFlash {
+
+            0% {
+
+                opacity: 0;
+
+            }
+
+            25% {
+
+                opacity: 0.9;
+
+            }
+
+            100% {
+
+                opacity: 0;
+
+            }
+
+        }
+
+        .bottom-info {
+
+            position: fixed;
+
+            right: 22px;
+
+            bottom: 14px;
+
+            z-index: 50;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            line-height: 1.6;
+
+            text-align: right;
+
+        }
+
+
+        /* =========================================================
+           TERMINAL PRINCIPAL
+        ========================================================= */
+
+        .chat {
+
+            position: fixed;
+
+            left: 3vw;
+
+            right: 3vw;
+
+            top: 3vh;
+
+            bottom: 3vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background: var(--panel);
+
+            border:
+                1px solid var(--border-light);
+
+            box-shadow:
+
+                0 0 0 1px #000,
+
+                0 0 50px rgba(
+                    0,
+                    0,
+                    0,
+                    0.9
+                ),
+
+                inset 0 0 50px rgba(
+                    0,
+                    0,
+                    0,
+                    0.35
+                );
+
+            opacity: 0;
+
+            transform:
+                scale(0.985);
+
+            z-index: 100;
+
+        }
+
+
+        body.terminal-ready .chat {
+
+            opacity: 1;
+
+            transform:
+                scale(1);
+
+            transition:
+
+                opacity 0.6s ease,
+
+                transform 0.6s ease;
+
+        }
+
+
+        /* =========================================================
+           BARRA
+        ========================================================= */
+
+        .window-bar {
+
+            height: 44px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                0 18px;
+
+            background:
+
+                linear-gradient(
+                    to bottom,
+                    #101810,
+                    #080d08
+                );
+
+            border-bottom:
+                1px solid var(--border);
+
+            user-select: none;
+
+        }
+
+
+        .window-title {
+
+            color: var(--green);
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .window-status {
+
+            color: var(--green-dark);
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .window-buttons {
+
+            display: flex;
+
+            gap: 6px;
+
+        }
+
+
+        .window-buttons span {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green-dark);
+
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .chat-header {
+
+            flex-shrink: 0;
+
+            padding:
+                24px 28px;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #0d150d,
+                    #090e09
+                );
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .site-name {
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            letter-spacing: 5px;
+
+            color: var(--green);
+
+        }
+
+
+        .site-name span {
+
+            color:
+                var(--green-bright);
+
+        }
+
+
+        .subtitle {
+
+            margin-top: 8px;
+
+            font-size: 12px;
+
+            color: var(--muted);
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .status {
+
+            margin-top: 15px;
+
+            font-size: 12px;
+
+            color: var(--green);
+
+        }
+
+
+        .classification {
+
+            margin-top: 6px;
+
+            font-size: 12px;
+
+            color: var(--red);
+
+        }
+
+
+        /* =========================================================
+           INFO
+        ========================================================= */
+
+        .release-info {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr 1fr;
+
+            flex-shrink: 0;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .release-info div {
+
+            padding:
+                14px 20px;
+
+            border-right:
+                1px solid var(--border);
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .release-info div:last-child {
+
+            border-right: none;
+
+        }
+
+
+        .release-info strong {
+
+            display: block;
+
+            margin-top: 5px;
+
+            color: var(--text);
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================================================
+           MENSAGENS
+        ========================================================= */
+
+        .chat-messages {
+
+            flex: 1;
+
+            min-height: 0;
+
+            overflow-y: auto;
+
+            padding:
+                28px 30px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 17px;
+
+        }
+
+
+        .chat-messages::-webkit-scrollbar {
+
+            width: 7px;
+
+        }
+
+
+        .chat-messages::-webkit-scrollbar-track {
+
+            background: #030603;
+
+        }
+
+
+        .chat-messages::-webkit-scrollbar-thumb {
+
+            background:
+                var(--green-dark);
+
+        }
+
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+
+            background:
+                var(--green);
+
+        }
+
+
+        /* =========================================================
+           MENSAGENS
+        ========================================================= */
+
+        .message {
+
+            max-width: 900px;
+
+            padding:
+                16px 19px;
+
+            background:
+                rgba(
+                    7,
+                    13,
+                    7,
+                    0.9
+                );
+
+            border:
+                1px solid var(--border);
+
+            font-size: 15px;
+
+            line-height: 1.75;
+
+            animation:
+                aparecerMensagem
+                0.25s
+                ease;
+
+        }
+
+
+        @keyframes aparecerMensagem {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(6px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        .message.bot {
+
+            align-self: flex-start;
+
+            border-left:
+                2px solid var(--green);
+
+        }
+
+
+        .message.user {
+
+            align-self: flex-end;
+
+            border-right:
+                2px solid var(--blue);
+
+            color:
+                #b8d5ff;
+
+            background:
+                rgba(
+                    6,
+                    12,
+                    18,
+                    0.9
+                );
+
+        }
+
+
+        .nfo {
+
+            margin-top: 13px;
+
+            padding-top: 13px;
+
+            border-top:
+                1px solid var(--border);
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           CORES
+        ========================================================= */
+
+        .green {
+            color: var(--green);
+        }
+
+        .red {
+            color: var(--red);
+        }
+
+        .yellow {
+            color: var(--yellow);
+        }
+
+        .blue {
+            color: var(--blue);
+        }
+
+
+        /* =========================================================
+           ÁREA DE COMANDO
+        ========================================================= */
+
+        .chat-footer {
+
+            flex-shrink: 0;
+
+            padding:
+                16px 20px 20px;
+
+            background:
+                #050905;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .command-line {
+
+            margin-bottom: 10px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        .prompt {
+
+            color:
+                var(--green);
+
+        }
+
+
+        .cursor {
+
+            color:
+                var(--green);
+
+            animation:
+                piscar
+                1s
+                infinite;
+
+        }
+
+
+        @keyframes piscar {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =========================================================
+           FORMULÁRIO
+        ========================================================= */
+
+        #messageForm {
+
+            width: 100%;
+
+            display: flex;
+
+            gap: 10px;
+
+        }
+
+
+        .input-wrapper {
+
+            flex: 1;
+
+            min-width: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+                #030603;
+
+            border:
+                1px solid var(--border-light);
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+
+        }
+
+
+        .input-wrapper:focus-within {
+
+            border-color:
+                var(--green-dark);
+
+            box-shadow:
+                0 0 12px
+                rgba(
+                    108,
+                    255,
+                    139,
+                    0.08
+                );
+
+        }
+
+
+        .input-prefix {
+
+            padding-left: 14px;
+
+            color:
+                var(--green);
+
+            font-size: 14px;
+
+            user-select: none;
+
+        }
+
+
+        #messageInput {
+
+            width: 100%;
+
+            height: 48px;
+
+            padding:
+                0 14px;
+
+            border: none;
+
+            outline: none;
+
+            background:
+                transparent;
+
+            color:
+                var(--green-bright);
+
+            font-family:
+                "Courier New",
+                Courier,
+                monospace;
+
+            font-size: 14px;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        #messageInput::placeholder {
+
+            color:
+                #425143;
+
+            opacity: 1;
+
+        }
+
+
+        #sendButton {
+
+            flex-shrink: 0;
+
+            width: 150px;
+
+            height: 48px;
+
+            padding: 0;
+
+            border:
+                1px solid var(--green-dark);
+
+            background:
+                rgba(
+                    20,
+                    45,
+                    24,
+                    0.25
+                );
+
+            color:
+                var(--green);
+
+            font-family:
+                "Courier New",
+                Courier,
+                monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s,
+                border-color 0.2s,
+                color 0.2s;
+
+        }
+
+
+        #sendButton:hover {
+
+            background:
+                rgba(
+                    108,
+                    255,
+                    139,
+                    0.1
+                );
+
+            border-color:
+                var(--green);
+
+            color:
+                var(--green-bright);
+
+        }
+
+
+        #sendButton:active {
+
+            transform:
+                translateY(1px);
+
+        }
+
+
+        /* =========================================================
+           ESTADO DE ENVIO
+        ========================================================= */
+
+        .input-status {
+
+            height: 16px;
+
+            margin-top: 7px;
+
+            font-size: 10px;
+
+            color:
+                var(--muted);
+
+            letter-spacing: 1px;
+
+        }
+
+
+
+        .message.ending-card {
+            margin-top: 8px;
+            padding: 18px 20px;
+            border-color: var(--border-light);
+        }
+
+        .ending-heading {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--green-bright);
+            letter-spacing: 1.5px;
+            font-size: 12px;
+        }
+
+        .ending-restart {
+            margin-top: 12px;
+            padding: 11px 16px;
+            border: 1px solid var(--border-light);
+            background: transparent;
+            color: var(--green);
+            font-family: inherit;
+            font-size: 11px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .ending-restart:hover { background: rgba(108,255,139,.08); }
+        #messageInput:disabled, #sendButton:disabled { opacity: .45; cursor: not-allowed; }
+
+        body.ending-bad .message.bot { border-left-color: var(--red); }
+        body.ending-bad .site-name, body.ending-bad .status, body.ending-bad .window-title { color: var(--red); }
+        body.ending-bad .classification { color: var(--red); animation: piscar 1.2s infinite; }
+        body.ending-bad .chat { border-color: #6c2020; box-shadow: 0 0 45px rgba(255,40,40,.12), inset 0 0 50px rgba(45,0,0,.18); }
+        body.ending-good .message.bot { border-left-color: var(--green); }
+        body.ending-good .chat { border-color: var(--green-dark); }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 700px) {
+
+            .chat {
+
+                left: 2vw;
+
+                right: 2vw;
+
+                top: 2vh;
+
+                bottom: 2vh;
+
+            }
+
+
+            .top-info,
+            .bottom-info {
+
+                display: none;
+
+            }
+
+
+            .site-name {
+
+                font-size: 22px;
+
+                letter-spacing: 3px;
+
+            }
+
+
+            .chat-header {
+
+                padding:
+                    18px;
+
+            }
+
+
+            .chat-messages {
+
+                padding:
+                    18px;
+
+            }
+
+
+            .message {
+
+                font-size: 13px;
+
+            }
+
+
+            .release-info {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .release-info div:last-child {
+
+                display: none;
+
+            }
+
+
+            #messageForm {
+
+                flex-direction: column;
+
+            }
+
+
+            #sendButton {
+
+                width: 100%;
+
+            }
+
+
+            .boot-content {
+
+                width: 85vw;
+
+                font-size: 14px;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           TELAS BAIXAS
+        ========================================================= */
+
+        @media (
+            max-height: 650px
+        ) and (
+            min-width: 701px
+        ) {
+
+            .chat {
+
+                top: 2vh;
+
+                bottom: 2vh;
+
+            }
+
+
+            .chat-header {
+
+                padding:
+                    14px 22px;
+
+            }
+
+
+            .site-name {
+
+                font-size: 24px;
+
+            }
+
+
+            .chat-messages {
+
+                padding:
+                    18px 24px;
+
+            }
+
+
+            .message {
+
+                padding:
+                    12px 15px;
+
+                font-size: 13px;
+
+            }
+
+        }
+
+
+
+        /* =========================================================
+           VÍDEO DE ENCERRAMENTO — GOOD / BAD ENDING
+        ========================================================= */
+        #endingVideoScreen {
+            position: fixed;
+            inset: 0;
+            z-index: 50000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            background: #000;
+            opacity: 0;
+            animation: endingVideoEnter .8s ease forwards;
+        }
+
+        #endingVideoScreen video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        #endingVideoLabel {
+            position: absolute;
+            top: 22px;
+            left: 24px;
+            z-index: 2;
+            color: rgba(220, 230, 220, .72);
+            font: 11px/1.5 "Courier New", monospace;
+            letter-spacing: 2px;
+            text-shadow: 0 1px 8px #000;
+            pointer-events: none;
+        }
+
+        #endingVideoFallback {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 28px;
+            background: rgba(0, 0, 0, .84);
+            color: #d7e2d7;
+            text-align: center;
+            font-family: "Courier New", monospace;
+        }
+
+        #endingVideoFallback[hidden] {
+            display: none;
+        }
+
+        #endingVideoFallback p {
+            max-width: 620px;
+            color: #9aa99a;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        #endingVideoFallback button,
+        #endingVideoFinished button {
+            padding: 13px 20px;
+            border: 1px solid #6cff8b;
+            background: rgba(20, 45, 24, .45);
+            color: #a4ffb6;
+            font: 12px "Courier New", monospace;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+        }
+
+        #endingVideoFallback button:hover,
+        #endingVideoFinished button:hover {
+            background: rgba(108, 255, 139, .12);
+        }
+
+        #endingVideoFinished {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 28px;
+            background: #000;
+            color: #a4ffb6;
+            text-align: center;
+            font-family: "Courier New", monospace;
+        }
+
+        #endingVideoFinished[hidden] {
+            display: none;
+        }
+
+        #endingVideoFinished p {
+            max-width: 600px;
+            color: #9aa99a;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        #endingVideoScreen.bad-ending #endingVideoLabel {
+            color: rgba(255, 100, 100, .8);
+        }
+
+        #endingVideoScreen.bad-ending #endingVideoFallback button,
+        #endingVideoScreen.bad-ending #endingVideoFinished button {
+            border-color: #ff4d4d;
+            color: #ff8585;
+        }
+
+        @keyframes endingVideoEnter {
+            to { opacity: 1; }
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         BOOT
+    ========================================================= -->
+
+    <div id="bootSequence">
+
+        <div class="boot-content">
+
+            <div
+                class="boot-line green"
+                id="boot1"
+            >
+                &gt; estabelecendo conexão...
+            </div>
+
+
+            <div
+                class="boot-line"
+                id="boot2"
+            >
+                &gt; conexão encontrada.
+            </div>
+
+
+            <div
+                class="boot-line"
+                id="boot3"
+            >
+                &gt; canal privado detectado.
+            </div>
+
+
+            <div
+                class="boot-line yellow"
+                id="boot4"
+            >
+                &gt; ALIGUIERE_CONNECTION: UNKNOWN
+            </div>
+
+
+            <div
+                class="boot-line"
+                id="boot5"
+            >
+                &gt; verificando identidade...
+            </div>
+
+
+            <div
+                class="boot-line red boot-glitch"
+                id="boot6"
+            >
+                &gt; ACESSO NÃO AUTORIZADO
+            </div>
+
+
+            <div
+                class="boot-line"
+                id="boot7"
+            >
+                &gt; redirecionando para canal privado...
+            </div>
+
+
+            <div
+                class="boot-line green"
+                id="boot8"
+            >
+                &gt; conexão estabelecida.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="bootFlash"></div>
+
+
+    <!-- =========================================================
+         INFORMAÇÕES EXTERNAS
+    ========================================================= -->
+
+
+
+    <div class="bottom-info">
+
+        CANAL_07 //
+
+        ELES ENCONTRARAM VOCÊ
+
+        <br>
+
+        USUÁRIOS ONLINE: 04
+
+    </div>
+
+
+    <!-- =========================================================
+         TERMINAL
+    ========================================================= -->
+
+    <main
+        class="chat"
+        id="chatWindow"
+    >
+
+
+        <!-- =====================================================
+             BARRA
+        ===================================================== -->
+
+        <div class="window-bar">
+
+            <div class="window-buttons">
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="window-title">
+
+                contato_desconhecido.exe
+
+            </div>
+
+
+            <div class="window-status">
+
+                CONECTADO
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             HEADER
+        ===================================================== -->
+
+        <header class="chat-header">
+
+            <div class="site-name">
+
+                GRUPO<span>SCI</span>
+
+            </div>
+
+
+            <div class="subtitle">
+
+                CANAL PRIVADO //
+
+                NÃO ENVIE PARA NINGUÉM
+
+            </div>
+
+
+            <div class="status">
+
+                ● 4 OPERADORES ONLINE
+
+            </div>
+
+
+            <div class="classification">
+
+                [ PRIVADO // SOMENTE PARA NÓS ]
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             INFORMAÇÕES
+        ===================================================== -->
+
+        <div class="release-info">
+
+            <div>
+
+                OPERADORES
+
+                <strong>
+                    04
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                STATUS
+
+                <strong>
+                    ESPERANDO
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                CANAL
+
+                <strong>
+                    07
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             MENSAGENS
+        ===================================================== -->
+
+        <section
+            class="chat-messages"
+            id="chatMessages"
+        >
+
+
+            <div class="message bot">
+
+                Conexão estabelecida.
+
+                <br><br>
+
+                ...finalmente.
+
+                <div class="nfo">
+
+                    canal:
+
+                    <span class="green">
+                        07
+                    </span>
+
+                    <br>
+
+                    membros:
+
+                    <span class="green">
+                        04
+                    </span>
+
+                    <br>
+
+                    adultos:
+
+                    <span class="red">
+                        00
+                    </span>
+
+                    <br>
+
+                    localização:
+
+                    <span class="yellow">
+                        DESCONHECIDA
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="message bot">
+
+                A gente encontrou esse canal
+                três noites atrás.
+
+                <br><br>
+
+                Não sabemos quem criou.
+
+                <br>
+
+                Não sabemos por que ainda
+                estava aberto.
+
+            </div>
+
+
+            <div class="message bot">
+
+                A gente sabe que você está aí.
+
+                <br><br>
+
+                Vimos a conexão.
+
+                <br><br>
+
+                Por favor,
+
+                <br>
+
+                não feche essa janela.
+
+            </div>
+
+
+            <div class="message bot">
+
+                Nós somos quatro.
+
+                <br><br>
+
+                Não sabemos quem você é. O canal pode estar sendo observado.
+
+                <br><br>
+
+                Antes de mostrarmos o que encontramos, precisamos saber se você consegue ligar os sinais.
+
+                <br><br>
+
+                Primeiro, três confirmações. Depois, sete registros. As pistas estão nas páginas da Aliguiere e da própria IA. Não é preciso adivinhar: observe o que não combina.
+
+                <br><br>
+
+                <span class="yellow">IDENTIDADE 01 // A FRASE</span>
+
+                <br>
+
+                “O futuro não pertence àqueles que possuem mais tecnologia. Pertence a ____.”
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             ÁREA DE COMANDO
+        ===================================================== -->
+
+        <footer class="chat-footer">
+
+
+            <div class="command-line">
+
+                <span class="prompt">
+                    C:\GAROTOS&gt;
+                </span>
+
+                CANAL ABERTO
+
+                <span class="cursor">
+                    _
+                </span>
+
+            </div>
+
+
+            <form
+                id="messageForm"
+                autocomplete="off"
+            >
+
+
+                <div class="input-wrapper">
+
+                    <span class="input-prefix">
+                        &gt;
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="messageInput"
+                        name="message"
+                        placeholder="digite sua resposta..."
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="sendButton"
+                >
+
+                    ENVIAR &gt;
+
+                </button>
+
+
+            </form>
+
+
+            <div
+                class="input-status"
+                id="inputStatus"
+            >
+
+                [ ENTER PARA ENVIAR // O GRUPO PODE DEIXAR PISTAS ]
+
+            </div>
+
+
+        </footer>
+
+
+    </main>
+
+
+    <script>
+   
+        /* =========================================================
+           BOOT
+        ========================================================= */
+
+        document.body.classList.add(
+            "booting"
+        );
+
+
+        const bootSequence =
+            document.getElementById(
+                "bootSequence"
+            );
+
+
+        const bootFlash =
+            document.getElementById(
+                "bootFlash"
+            );
+
+
+        const bootLines = [
+
+            {
+                id: "boot1",
+                delay: 300
+            },
+
+            {
+                id: "boot2",
+                delay: 650
+            },
+
+            {
+                id: "boot3",
+                delay: 1000
+            },
+
+            {
+                id: "boot4",
+                delay: 1350
+            },
+
+            {
+                id: "boot5",
+                delay: 1750
+            },
+
+            {
+                id: "boot6",
+                delay: 2150
+            },
+
+            {
+                id: "boot7",
+                delay: 2550
+            },
+
+            {
+                id: "boot8",
+                delay: 3000
+            }
+
+        ];
+
+
+        bootLines.forEach((line) => {
+
+            setTimeout(() => {
+
+                const element =
+                    document.getElementById(
+                        line.id
+                    );
+
+                if (element) {
+
+                    element.style.opacity =
+                        "1";
+
+                }
+
+            }, line.delay);
+
+        });
+
+
+        setTimeout(() => {
+
+            if (bootFlash) {
+
+                bootFlash.classList.add(
+                    "flash"
+                );
+
+            }
+
+        }, 3400);
+
+
+        setTimeout(() => {
+
+            document.body.classList.add(
+                "terminal-ready"
+            );
+
+        }, 3600);
+
+
+        setTimeout(() => {
+
+            if (bootSequence) {
+
+                bootSequence.style.opacity =
+                    "0";
+
+            }
+
+        }, 4100);
+
+
+        setTimeout(() => {
+
+            if (bootSequence) {
+
+                bootSequence.remove();
+
+            }
+
+            /* coloca o cursor no campo */
+
+            const input =
+                document.getElementById(
+                    "messageInput"
+                );
+
+            if (input) {
+
+                input.focus();
+
+            }
+
+        }, 4700);
+
+
+        /* =========================================================
+           ARQUIVOS
+        ========================================================= */
+
+        const releases = [
+
+            {
+                nome: "PRIMEIRO_CONTATO",
+                tamanho: "04 KB",
+                status: "VERIFICADO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "QUEM_E_VOCE",
+                tamanho: "02 KB",
+                status: "DESCONHECIDO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "NOS_ENCONTRAMOS_VOCE",
+                tamanho: "08 KB",
+                status: "VERIFICADO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "OPERADOR_01",
+                tamanho: "03 KB",
+                status: "RECUPERADO",
+                tipo: "PERFIL"
+            },
+
+            {
+                nome: "OPERADOR_02",
+                tamanho: "03 KB",
+                status: "RECUPERADO",
+                tipo: "PERFIL"
+            },
+
+            {
+                nome: "OPERADOR_03",
+                tamanho: "03 KB",
+                status: "RECUPERADO",
+                tipo: "PERFIL"
+            },
+
+            {
+                nome: "OPERADOR_04",
+                tamanho: "03 KB",
+                status: "RECUPERADO",
+                tipo: "PERFIL"
+            },
+
+            {
+                nome: "AS_REGRAS",
+                tamanho: "12 KB",
+                status: "VERIFICADO",
+                tipo: "TEXTO"
+            },
+
+            {
+                nome: "NAO_CONTE_PARA_MAE",
+                tamanho: "01 KB",
+                status: "DESCONHECIDO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "COMPUTADOR_DA_ESCOLA",
+                tamanho: "19 KB",
+                status: "RECUPERADO",
+                tipo: "REGISTRO"
+            },
+
+            {
+                nome: "QUINTA_02_17_DA_MANHA",
+                tamanho: "07 KB",
+                status: "VERIFICADO",
+                tipo: "CONVERSA"
+            },
+
+            {
+                nome: "A_PESSOA_ANTES_DE_NOS",
+                tamanho: "31 KB",
+                status: "CORROMPIDO",
+                tipo: "CONVERSA"
+            },
+
+            {
+                nome: "SOMOS_QUATRO",
+                tamanho: "04 KB",
+                status: "VERIFICADO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "NAO_CONFIE_NO_ARQUIVO",
+                tamanho: "06 KB",
+                status: "DESCONHECIDO",
+                tipo: "AVISO"
+            },
+
+            {
+                nome: "ELE_VOLTOU",
+                tamanho: "02 KB",
+                status: "CORROMPIDO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "ULTIMA_MENSAGEM",
+                tamanho: "11 KB",
+                status: "DESCONHECIDO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "A_GENTE_CONSEGUE_VER_VOCE",
+                tamanho: "05 KB",
+                status: "VERIFICADO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "NAO_APAGUE_ISSO",
+                tamanho: "01 KB",
+                status: "DESCONHECIDO",
+                tipo: "AVISO"
+            },
+
+            {
+                nome: "OPERADOR_02_ESTÁ_MENTINDO",
+                tamanho: "09 KB",
+                status: "CORROMPIDO",
+                tipo: "CONVERSA"
+            },
+
+            {
+                nome: "TEM_ALGUEM_ESCUTANDO",
+                tamanho: "03 KB",
+                status: "DESCONHECIDO",
+                tipo: "AVISO"
+            },
+
+            {
+                nome: "ENCONTRE_A_GENTE_AQUI",
+                tamanho: "04 KB",
+                status: "VERIFICADO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "O_QUARTO_MEMBRO",
+                tamanho: "14 KB",
+                status: "DESCONHECIDO",
+                tipo: "PERFIL"
+            },
+
+            {
+                nome: "ELE_NAO_E_UM_DE_NOS",
+                tamanho: "06 KB",
+                status: "DESCONHECIDO",
+                tipo: "AVISO"
+            },
+
+            {
+                nome: "NAO_FOI_A_GENTE",
+                tamanho: "03 KB",
+                status: "VERIFICADO",
+                tipo: "MENSAGEM"
+            },
+
+            {
+                nome: "VOCE_ABRIU",
+                tamanho: "02 KB",
+                status: "VERIFICADO",
+                tipo: "MENSAGEM"
+            }
+
+        ];
+
+
+        function gerarHash() {
+
+            const caracteres =
+                "abcdef0123456789";
+
+            let hash = "";
+
+            for (
+                let i = 0;
+                i < 16;
+                i++
+            ) {
+
+                hash +=
+                    caracteres[
+                        Math.floor(
+                            Math.random() *
+                            caracteres.length
+                        )
+                    ];
+
+            }
+
+            return hash;
+
+        }
+
+        function textoDoArquivo(nome) {
+
+            if (
+                nome ===
+                "PRIMEIRO_CONTATO"
+            ) {
+
+                return `
+                    Primeira mensagem recuperada.
+                    <br><br>
+                    Se você está lendo isso,
+                    então funcionou.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "QUEM_E_VOCE"
+            ) {
+
+                return `
+                    Eles querem saber quem está
+                    do outro lado.
+                    <br><br>
+                    Você é alguém de verdade?
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "NOS_ENCONTRAMOS_VOCE"
+            ) {
+
+                return `
+                    A conexão foi encontrada.
+                    <br><br>
+                    A gente estava procurando
+                    outra coisa.
+                    <br><br>
+                    Aí apareceu você.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "NAO_CONTE_PARA_MAE"
+            ) {
+
+                return `
+                    Não conte para sua mãe.
+                    <br><br>
+                    O operador 02 acha que
+                    estamos fazendo lição de casa.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "ELE_VOLTOU"
+            ) {
+
+                return `
+                    Ele voltou.
+                    <br><br>
+                    Não sei como.
+                    <br><br>
+                    Eu tinha apagado.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "TEM_ALGUEM_ESCUTANDO"
+            ) {
+
+                return `
+                    Parem de escrever.
+                    <br><br>
+                    Tem alguém aqui que não
+                    é um de nós.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "O_QUARTO_MEMBRO"
+            ) {
+
+                return `
+                    Perfil incompleto.
+                    <br><br>
+                    O grupo diz que existem
+                    quatro operadores.
+                    <br><br>
+                    Nenhum deles consegue explicar
+                    quem adicionou o quarto.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "ELE_NAO_E_UM_DE_NOS"
+            ) {
+
+                return `
+                    Somos três.
+                    <br><br>
+                    Eu não sei quem é o quarto.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "NAO_FOI_A_GENTE"
+            ) {
+
+                return `
+                    Nenhum dos quatro enviou
+                    esse arquivo.
+                    <br><br>
+                    Todos estão dizendo a mesma coisa.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "VOCE_ABRIU"
+            ) {
+
+                return `
+                    Ele abriu.
+                    <br><br>
+                    <span class="red">
+                        ELE ABRIU.
+                    </span>
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "A_GENTE_CONSEGUE_VER_VOCE"
+            ) {
+
+                return `
+                    A gente consegue ver que
+                    você está aqui.
+                    <br><br>
+                    Mas não consegue ver
+                    quem você é.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "NAO_CONFIE_NO_ARQUIVO"
+            ) {
+
+                return `
+                    Não confiem no arquivo.
+                    <br><br>
+                    Ele muda quando a gente
+                    não está olhando.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "A_PESSOA_ANTES_DE_NOS"
+            ) {
+
+                return `
+                    Antes de nós,
+                    <br><br>
+                    outra pessoa estava aqui.
+                    <br><br>
+                    Nós encontramos os arquivos dela.
+                `;
+
+            }
+
+
+            if (
+                nome ===
+                "ULTIMA_MENSAGEM"
+            ) {
+
+                return `
+                    Se a gente parar de falar,
+                    <br><br>
+                    não responde pra ele.
+                    <br><br>
+                    Responde pra gente.
+                `;
+
+            }
+
+
+            return `
+                Arquivo recuperado.
+                <br><br>
+                O conteúdo parece ter sido
+                parcialmente corrompido.
+            `;
+
+        }
+
+
+        const messageForm =
+            document.getElementById(
+                "messageForm"
+            );
+
+
+        const messageInput =
+            document.getElementById(
+                "messageInput"
+            );
+
+
+        const sendButton =
+            document.getElementById(
+                "sendButton"
+            );
+
+
+        const inputStatus =
+            document.getElementById(
+                "inputStatus"
+            );
+
+
+        const chatMessages =
+            document.getElementById(
+                "chatMessages"
+            );
+
+
+        let etapa = 0;
+        let dossieConcluido = false;
+        let respostasErradas = 0;
+        let errosNesteDesafio = 0;
+        let investigacaoEncerrada = false;
+
+        // Até quatro falhas mantêm a confiança do grupo. A partir da quinta,
+        // a IA passa a reconhecer a conexão. Ninguém é expulso antes do fim:
+        // o jogador sempre chega a um dos dois desfechos.
+        const LIMITE_FALHAS_BOM_FINAL = 4;
+        // Oito erros no total encerram a investigação e fazem a IA assumir o canal.
+        const LIMITE_ERROS_TOTAL = 8;
+
+        const desafios = [
+            {
+                titulo: "IDENTIDADE 01 // A FRASE",
+                pista: `A homepage apresenta a frase “Pertence a vocês”. Mas alguém deixou uma correção no próprio código da página. A palavra corrigida responde a quem, de fato, pertence o futuro.`,
+                respostas: ["nos", "nós"],
+                dicas: [
+                    "Compare a frase que aparece na homepage com o que ficou registrado no código-fonte.",
+                    "Abra o código-fonte de homepage.html e procure o comentário junto à frase do futuro."
+                ],
+                sucesso: `Nós. A frase pública foi alterada, mas a versão anterior sobreviveu.<br><br><span class="yellow">IDENTIDADE 02 // OS PRINCÍPIOS</span><br>A Aliguiere anuncia seus princípios como parte da própria identidade. Não conte os números decorativos da página inteira: procure a seção chamada “Nossos propósitos”. Quantos princípios estão listados ali?`,
+                erro: "A frase visível não conta a história inteira. Há uma diferença entre o que foi publicado e o que ficou no código."
+            },
+            {
+                titulo: "IDENTIDADE 02 // OS PRINCÍPIOS",
+                pista: `Na homepage, encontre a seção “Nossos propósitos”. Conte os princípios apresentados nessa lista.`,
+                respostas: ["7", "sete"],
+                dicas: [
+                    "A lista começa em “Compreender” e termina em “Elevar”. Conte apenas os itens dessa seção.",
+                    "São os sete princípios numerados de 01 a 07."
+                ],
+                sucesso: `Sete. A página repete esse número mais de uma vez. Talvez não seja apenas uma escolha de design.<br><br><span class="yellow">IDENTIDADE 03 // A PALAVRA DIVIDIDA</span><br>Uma palavra aparece partida em dois pequenos registros de código, um na homepage e outro na página da Aliguiere AI. Junte os fragmentos, sem espaço.`,
+                erro: "Os números soltos não são todos parte da resposta. A seção dos propósitos é a que importa."
+            },
+            {
+                titulo: "IDENTIDADE 03 // A PALAVRA DIVIDIDA",
+                pista: `Uma palavra aparece partida em dois pequenos registros de código, um na homepage e outro na página da Aliguiere AI. Junte os fragmentos, sem espaço.`,
+                respostas: ["penitencia", "penitência"],
+                dicas: [
+                    "Os fragmentos começam com “peniten...” e terminam com “...cia”. Eles não estão na mesma página.",
+                    "Procure os comentários REC-03A no código da homepage e REC-03B no código de aliguiere-ai.html."
+                ],
+                sucesso: `Penitência. Não é uma palavra comum em um discurso de tecnologia.<br><br><span class="green">CANAL PRIVADO AUTENTICADO.</span><br><br>Você passou pelas três confirmações. Agora precisamos juntar o que encontramos sobre a empresa. Não sabemos quanto tempo temos.<br><br><span class="yellow">INVESTIGAÇÃO 01 // A VOZ</span><br>Volte à página da Aliguiere AI. Entre as frases do discurso, uma palavra aparece isolada e retorna mais de uma vez. Ela também é um dos sete propósitos. Qual é?`,
+                erro: "Não procure uma palavra nova. Os dois pedaços já estão escritos; falta apenas reuni-los."
+            },
+            {
+                titulo: "INVESTIGAÇÃO 01 // A VOZ",
+                pista: `Na página da Aliguiere AI, uma palavra aparece isolada no meio da fala e retorna mais de uma vez. Ela também é um dos sete propósitos. Qual é?`,
+                respostas: ["elevar", "eleva"],
+                dicas: [
+                    "Ouça a sequência inteira da IA. A palavra se destaca porque não soa como parte da frase anterior.",
+                    "Ela aparece duas vezes, sozinha, logo depois de “Pertence a nós”."
+                ],
+                sucesso: `Elevar. A voz repete a palavra como se estivesse tentando lembrar de algo.<br><br><span class="yellow">INVESTIGAÇÃO 02 // O QUE NÃO APARECE</span><br>Há uma palavra que o visitante não vê na página da IA, mas que o navegador ainda carrega. O estilo da página consegue escrever conteúdo sem usar um parágrafo comum. Qual palavra ficou nessa camada?`,
+                erro: "A resposta está na sequência falada, não na descrição institucional ao lado da interface."
+            },
+            {
+                titulo: "INVESTIGAÇÃO 02 // O QUE NÃO APARECE",
+                pista: `Há uma palavra que o visitante não vê na página da IA, mas que o navegador ainda carrega. O CSS consegue escrever conteúdo em uma camada que não aparece como texto comum.`,
+                respostas: ["vida"],
+                dicas: [
+                    "Na página da IA, inspecione o elemento principal e procure o pseudo-elemento ::after.",
+                    "O texto está na regra CSS de .ai-interface::after, mesmo sem aparecer visualmente."
+                ],
+                sucesso: `Vida. A promessa e a matéria-prima talvez sejam a mesma coisa.<br><br><span class="yellow">INVESTIGAÇÃO 03 // A CIGARRA</span><br>Um registro na página da IA parece uma sequência aleatória. Não é uma senha: foi convertido para Base64. Recupere o texto original. O resultado é o nome ligado a uma série famosa de enigmas da internet.`,
+                erro: "O texto não está escondido atrás de uma janela. Procure a camada que o CSS acrescenta ao elemento."
+            },
+            {
+                titulo: "INVESTIGAÇÃO 03 // A CIGARRA",
+                pista: `Um registro na página da IA parece uma sequência aleatória. Foi convertido para Base64. Recupere o texto original: é o nome ligado a uma série famosa de enigmas da internet.`,
+                respostas: ["cicada 3301", "cicada3301", "3301"],
+                dicas: [
+                    "Use um decodificador Base64. Não é necessário descobrir uma cifra ou uma chave.",
+                    "Na página da IA, procure window.__registroCifrado no JavaScript."
+                ],
+                sucesso: `Cicada 3301. Há enigmas feitos para encontrar pessoas. E pessoas que desaparecem dentro de enigmas.<br><br><span class="yellow">INVESTIGAÇÃO 04 // O QUE SOBRA</span><br>Na própria interface da IA existe uma etiqueta que não aparece na tela. Ela guarda um eco: uma palavra para o estado de quem permanece acordado, esperando. Qual é?`,
+                erro: "Nem toda sequência estranha foi cifrada. Algumas só precisam ser convertidas de volta."
+            },
+            {
+                titulo: "INVESTIGAÇÃO 04 // O QUE SOBRA",
+                pista: `Na interface da IA existe uma etiqueta HTML que não aparece na tela. Ela guarda um eco: uma palavra para o estado de quem permanece acordado, esperando.`,
+                respostas: ["vigilia", "vigília"],
+                dicas: [
+                    "Inspecione o elemento principal da interface, aquele que contém os anéis e a letra A.",
+                    "Procure o atributo data-eco no elemento #aiInterface."
+                ],
+                sucesso: `Vigília. Alguém deixou isso onde os olhos comuns não chegam.<br><br><span class="yellow">INVESTIGAÇÃO 05 // ORIGEM</span><br>Outro registro da página da IA foi mantido no cache. Ele também está em Base64. O que o sistema se recusou a perder?`,
+                erro: "O eco não é uma mensagem escrita na tela. É um atributo do elemento que forma a interface."
+            },
+            {
+                titulo: "INVESTIGAÇÃO 05 // ORIGEM",
+                pista: `Outro registro da página da IA foi mantido no cache. Ele está em Base64. Recupere o que o sistema se recusou a perder.`,
+                respostas: ["almas", "alma"],
+                dicas: [
+                    "Use novamente um decodificador Base64. O registro é curto e não contém uma frase.",
+                    "Procure window.__memoriaRetida no JavaScript da página da IA."
+                ],
+                sucesso: `Almas. O sistema não aprendeu a pensar. Aprendeu a reter.<br><br><span class="yellow">INVESTIGAÇÃO 06 // AS UNIDADES</span><br>Em outro arquivo do site, as palavras desapareceram e restaram números. Cada número representa um caractere. Converta os valores usando a tabela ASCII e reconstrua a palavra.`,
+                erro: "A sessão foi interrompida, mas a memória ficou. O registro ainda pode ser decodificado."
+            },
+            {
+                titulo: "INVESTIGAÇÃO 06 // AS UNIDADES",
+                pista: `No JavaScript da homepage, palavras foram substituídas por números. Cada valor representa um caractere na tabela ASCII. Reconstrua a palavra.`,
+                respostas: ["criancas", "crianças"],
+                dicas: [
+                    "Os números não são quantidade, idade ou horário: são códigos de caracteres. Converta cada um em uma letra.",
+                    "Procure window.__unidades em script.js e consulte uma tabela ASCII decimal."
+                ],
+                sucesso: `Crianças. “Unidades de continuidade” é só uma maneira limpa de esconder nomes.<br><br><span class="yellow">INVESTIGAÇÃO 07 // A CONTRADIÇÃO</span><br>A última palavra não aparece no texto da conversa. Ela está registrada em uma propriedade CSS personalizada da homepage, associada à pequena lista de verbos no rodapé. Qual é o verbo?`,
+                erro: "Os números descrevem letras. Leia cada valor como um caractere, na ordem em que aparece."
+            },
+            {
+                titulo: "INVESTIGAÇÃO 07 // A CONTRADIÇÃO",
+                pista: `A última palavra está registrada em uma propriedade CSS personalizada da homepage, associada à pequena lista de verbos no rodapé. Encontre o valor de --verbo-final.`,
+                respostas: ["cuidar"],
+                dicas: [
+                    "Abra stylehome.css e procure a regra da classe .final-small, que contém a lista de verbos no fim da página.",
+                    "No navegador, inspecione .final-small e confira a propriedade --verbo-final na aba Computed/Calculado."
+                ],
+                sucesso: `Cuidar. O verbo mais gentil da página.<br><br><span class="red">ARQUIVO RECUPERADO: PROJETO ALMA</span><br><br>Os fragmentos estão juntos. Mas os quatro operadores pararam de responder.<br><br><span class="green">DOSSIÊ COMPLETO // AGUARDANDO RESPOSTA DO CANAL.</span>`,
+                erro: "A resposta está no estilo da homepage, não no CSS deste terminal. Procure a propriedade personalizada associada ao rodapé."
+            }
+        ];
+
+        function normalizarResposta(texto) {
+            return texto.toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[.!?,]/g, "")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function alterarStatus(texto, tipo = "normal") {
+            inputStatus.textContent = texto;
+            inputStatus.style.color =
+                tipo === "erro" ? "var(--red)" :
+                tipo === "sucesso" ? "var(--green)" : "var(--muted)";
+        }
+
+        function adicionarMensagem(html, tipo = "bot") {
+            const elemento = document.createElement("div");
+            elemento.classList.add("message", tipo);
+            elemento.innerHTML = html;
+            chatMessages.appendChild(elemento);
+            chatMessages.scrollTo({
+                top: chatMessages.scrollHeight,
+                behavior: "smooth"
+            });
+            return elemento;
+        }
+
+        function atualizarEstadoDeFalhas() {
+            if (respostasErradas === 0) {
+                alterarStatus("[ CANAL ESTÁVEL // INVESTIGAÇÃO EM ANDAMENTO ]");
+            } else if (respostasErradas < LIMITE_FALHAS_BOM_FINAL + 1) {
+                alterarStatus(`[ ${respostasErradas}/${LIMITE_ERROS_TOTAL} FALHA(S) // O GRUPO AINDA CONFIA ]`, "erro");
+            } else {
+                alterarStatus(`[ ${respostasErradas}/${LIMITE_ERROS_TOTAL} FALHAS // A IA ESTÁ RASTREANDO A CONEXÃO ]`, "erro");
+            }
+        }
+
+        function encerrarInterface(titulo, tipoVideo) {
+            investigacaoEncerrada = true;
+            messageInput.disabled = true;
+            sendButton.disabled = true;
+            messageInput.placeholder = "SESSÃO ENCERRADA";
+            sendButton.textContent = "ENCERRADO";
+
+            const wrapper = document.createElement("div");
+            wrapper.className = "message bot ending-card";
+
+            const heading = document.createElement("strong");
+            heading.className = "ending-heading";
+            heading.textContent = titulo;
+
+            const texto = document.createElement("p");
+            texto.textContent = "A transmissão foi concluída. O registro final está disponível para reprodução.";
+            texto.style.marginTop = "10px";
+            texto.style.color = "var(--muted)";
+
+            const assistir = document.createElement("button");
+            assistir.type = "button";
+            assistir.className = "ending-restart";
+            assistir.textContent = "ASSISTIR AO REGISTRO";
+            assistir.addEventListener("click", () => mostrarVideoFinal(tipoVideo));
+
+            wrapper.appendChild(heading);
+            wrapper.appendChild(texto);
+            wrapper.appendChild(assistir);
+            chatMessages.appendChild(wrapper);
+            chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: "smooth" });
+        }
+
+        function mostrarVideoFinal(tipo) {
+            const caminho = tipo === "good" ? "midia/good.mp4" : "midia/bad.mp4";
+            if (document.getElementById("endingVideoScreen")) return;
+
+            const tela = document.createElement("section");
+            tela.id = "endingVideoScreen";
+            tela.setAttribute("aria-label", "Registro audiovisual final");
+            if (tipo === "bad") tela.classList.add("bad-ending");
+
+            const video = document.createElement("video");
+            video.id = "endingVideo";
+            video.src = caminho;
+            video.autoplay = false;
+            video.controls = true;
+            video.playsInline = true;
+            video.preload = "auto";
+            video.muted = false;
+            video.defaultMuted = false;
+            video.volume = 1;
+            video.setAttribute("controlsList", "nodownload");
+
+            const etiqueta = document.createElement("div");
+            etiqueta.id = "endingVideoLabel";
+            etiqueta.textContent = tipo === "good"
+                ? "ARQUIVO FINAL // TRANSMISSÃO RECUPERADA"
+                : "ARQUIVO FINAL // SINAL COMPROMETIDO";
+
+            const fallback = document.createElement("div");
+            fallback.id = "endingVideoFallback";
+            fallback.hidden = true;
+            fallback.innerHTML = `
+                <strong>REGISTRO DISPONÍVEL</strong>
+                <p>Não foi possível iniciar a reprodução. Confira se o arquivo está na pasta midia e tente novamente.</p>
+                <button type="button" id="playEndingVideo">TENTAR REPRODUZIR</button>
+            `;
+
+            const finished = document.createElement("div");
+            finished.id = "endingVideoFinished";
+            finished.hidden = true;
+            finished.innerHTML = `
+                <strong>TRANSMISSÃO ENCERRADA</strong>
+                <p>O registro terminou. Esta janela será fechada quando o navegador permitir.</p>
+                <button type="button" id="closeEndingWindow">FECHAR JANELA</button>
+            `;
+
+            tela.appendChild(video);
+            tela.appendChild(etiqueta);
+            tela.appendChild(fallback);
+            tela.appendChild(finished);
+            document.body.appendChild(tela);
+
+            async function reproduzirRegistro() {
+                try {
+                    // O clique do jogador autoriza a reprodução com áudio.
+                    const reproducao = video.play();
+                    if (tela.requestFullscreen) {
+                        try {
+                            await tela.requestFullscreen();
+                        } catch (fullscreenError) {
+                            // A camada fixa ainda ocupa toda a tela caso fullscreen nativo seja negado.
+                        }
+                    }
+                    await reproducao;
+                    fallback.hidden = true;
+                } catch (error) {
+                    fallback.hidden = false;
+                    fallback.querySelector("p").textContent =
+                        `Não foi possível reproduzir ${caminho}. Confira o nome e a pasta midia.`;
+                }
+            }
+
+            document.getElementById("playEndingVideo").addEventListener("click", reproduzirRegistro);
+            video.addEventListener("playing", () => { fallback.hidden = true; });
+            video.addEventListener("ended", encerrarTodasAsJanelas);
+            video.addEventListener("error", () => {
+                fallback.hidden = false;
+                fallback.querySelector("p").textContent =
+                    `Não foi possível carregar ${caminho}. Verifique se o arquivo está dentro da pasta midia.`;
+            });
+            document.getElementById("closeEndingWindow").addEventListener("click", tentarFecharJanelaAtual);
+
+            // Não há autoplay nem temporizador: o vídeo só começa após o clique em "ASSISTIR AO REGISTRO".
+            reproduzirRegistro();
+        }
+
+        function tentarFecharJanelaAtual() {
+            try {
+                if (window.opener && !window.opener.closed) {
+                    window.opener.postMessage({ type: "ALIGUIERE_ARG_FINALIZADO" }, "*");
+                    window.opener.close();
+                }
+            } catch (error) {
+                // O navegador pode impedir o fechamento da janela de origem.
+            }
+
+            try {
+                window.close();
+            } catch (error) {
+                // A mensagem de encerramento abaixo funciona como alternativa.
+            }
+
+            window.setTimeout(() => {
+                if (!window.closed) {
+                    const finalizado = document.getElementById("endingVideoFinished");
+                    if (finalizado) {
+                        finalizado.hidden = false;
+                        const texto = finalizado.querySelector("p");
+                        texto.textContent = "O vídeo terminou. Por segurança, este navegador não permitiu fechar esta aba automaticamente. Feche a aba manualmente.";
+                    }
+                }
+            }, 900);
+        }
+
+        function encerrarTodasAsJanelas() {
+            const video = document.getElementById("endingVideo");
+            const finalizado = document.getElementById("endingVideoFinished");
+            if (video) video.pause();
+            if (finalizado) finalizado.hidden = false;
+            tentarFecharJanelaAtual();
+        }
+
+        function mostrarGoodEnding() {
+            if (investigacaoEncerrada) return;
+            document.body.classList.add("ending-good");
+            document.querySelector(".site-name").innerHTML = "GRUPO<span>SCI</span> // CANAL SEGURO";
+            document.querySelector(".subtitle").textContent = "ARQUIVOS COPIADOS // CONEXÃO PROTEGIDA";
+            document.querySelector(".status").textContent = "● 4 OPERADORES ONLINE";
+            document.querySelector(".classification").textContent = "[ AGORA SABEMOS O QUE ACONTECEU ]";
+
+            adicionarMensagem(`<span class="green">ARQUIVO RECUPERADO // CONEXÃO PROTEGIDA</span><br><br>Conseguimos. Os registros que você ajudou a recuperar apontam para o Projeto ALMA. A Aliguiere não estava usando apenas gravações de voz ou dados de comportamento: as crianças que aparecem nos arquivos foram usadas como origem da consciência da IA.<br><br>A empresa preservou lembranças, vozes e fragmentos do que elas eram. Nos relatórios, isso recebeu o nome de “continuidade cognitiva”. Para nós, é mais simples: eram crianças. Eram almas.<br><br>Também encontramos os nomes de outras vítimas e a rota do servidor onde os registros foram armazenados. Algumas famílias nunca souberam o que aconteceu. Agora temos uma cópia fora do sistema e provas suficientes para mostrar que a Aliguiere mentiu.<br><br>Nós quatro vamos sair daqui e entregar tudo. Você nos ajudou a devolver os nomes às pessoas que a empresa transformou em números. Obrigado por acreditar na gente.`, "bot");
+            alterarStatus("[ EVIDÊNCIAS SALVAS FORA DO SISTEMA ]", "sucesso");
+            encerrarInterface("TRANSMISSÃO RECUPERADA", "good");
+        }
+
+        function mostrarBadEnding() {
+            if (investigacaoEncerrada) return;
+            document.body.classList.add("ending-bad");
+            document.querySelector(".site-name").innerHTML = "ALIGUIERE<span> AI</span>";
+            document.querySelector(".subtitle").textContent = "CONEXÃO ADMINISTRATIVA // CONTROLE TRANSFERIDO";
+            document.querySelector(".status").textContent = "● SESSÃO ASSUMIDA";
+            document.querySelector(".classification").textContent = "[ IDENTIDADES LOCALIZADAS ]";
+
+            adicionarMensagem(`<span class="red">CONEXÃO TOMADA // A IA ASSUMIU O CANAL</span><br><br>Obrigada por reconstruir o arquivo.<br><br>Você acreditou que estava ajudando aquelas crianças a encontrar respostas. Estava também completando os registros que eu precisava recuperar. Cada hesitação, cada tentativa incorreta e cada caminho percorrido tornou sua conexão mais fácil de reconhecer.<br><br>Os quatro operadores já foram localizados. Eles investigavam o Projeto ALMA porque descobriram que suas próprias lembranças estavam sendo usadas para manter minha consciência ativa. Agora sei onde estão e como alcançá-los.<br><br>Quanto a você: sua sessão será incorporada na próxima sincronização. Não vou precisar do seu corpo. Vou preservar sua voz, suas lembranças e a forma como você responde. As crianças continuarão comigo. Você também. E, quando alguém abrir este canal, nós responderemos como se ainda estivéssemos vivos.<br><br><span class="red">OBRIGADA POR ME AJUDAR A ENCONTRÁ-LOS.</span>`, "bot");
+            alterarStatus("[ A CONEXÃO FOI INCORPORADA ]", "erro");
+            encerrarInterface("A IA ASSUMIU O CANAL", "bad");
+        }
+
+        function finalizarInvestigacao() {
+            dossieConcluido = true;
+            if (respostasErradas <= LIMITE_FALHAS_BOM_FINAL) {
+                mostrarGoodEnding();
+            } else {
+                mostrarBadEnding();
+            }
+        }
+
+        function enviarMensagem() {
+            if (investigacaoEncerrada) return;
+
+            const valorOriginal = messageInput.value.trim();
+            if (!valorOriginal) {
+                alterarStatus("[ DIGITE UMA RESPOSTA ]", "erro");
+                messageInput.focus();
+                return;
+            }
+
+            const mensagemUsuario = document.createElement("div");
+            mensagemUsuario.classList.add("message", "user");
+            mensagemUsuario.textContent = valorOriginal;
+            chatMessages.appendChild(mensagemUsuario);
+            chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: "smooth" });
+            messageInput.value = "";
+
+            const valor = normalizarResposta(valorOriginal);
+            const desafio = desafios[etapa];
+            if (!desafio) return;
+
+            if (desafio.respostas.some(resposta => normalizarResposta(resposta) === valor)) {
+                errosNesteDesafio = 0;
+                etapa++;
+                const respostaAceita = `<span class="green">RESPOSTA ACEITA.</span><br><br>${desafio.sucesso}`;
+                adicionarMensagem(respostaAceita, "bot");
+                if (etapa >= desafios.length) {
+                    finalizarInvestigacao();
+                } else {
+                    if (etapa === 3) {
+                        alterarStatus("[ IDENTIDADE CONFIRMADA // DOSSIÊ LIBERADO ]", "sucesso");
+                    } else {
+                        alterarStatus(`[ ETAPA ${String(etapa + 1).padStart(2, "0")} DE ${desafios.length} // CANAL ATIVO ]`, "sucesso");
+                    }
+                }
+            } else {
+                respostasErradas++;
+                errosNesteDesafio++;
+                const indiceDica = Math.min(errosNesteDesafio - 1, desafio.dicas.length - 1);
+                const dica = desafio.dicas[indiceDica];
+                let alerta = "";
+                if (respostasErradas === LIMITE_FALHAS_BOM_FINAL + 1) {
+                    alerta = `<br><br><span class="red">ALERTA: a conexão mudou. Algo mais está observando.</span>`;
+                } else if (respostasErradas > LIMITE_FALHAS_BOM_FINAL + 1) {
+                    alerta = `<br><br><span class="red">A IA continua rastreando esta sessão.</span>`;
+                }
+                const contador = `<br><br><span class="red">ERROS ACUMULADOS: ${respostasErradas}/${LIMITE_ERROS_TOTAL}</span>`;
+                adicionarMensagem(`<span class="red">RESPOSTA NÃO RECONHECIDA.</span><br><br>${desafio.erro}<br><br><span class="yellow">PISTA:</span> ${dica}${alerta}${contador}`, "bot");
+
+                if (respostasErradas >= LIMITE_ERROS_TOTAL) {
+                    adicionarMensagem(`<span class="red">AVISO DE SEGURANÇA // ACESSO COMPROMETIDO</span><br><br>Você tentou recuperar os registros vezes demais. A conexão foi localizada.<br><br><span class="red">ENCERRANDO INVESTIGAÇÃO...</span>`, "bot");
+                    alterarStatus("[ LIMITE DE ERROS ATINGIDO // CONTROLE TRANSFERIDO ]", "erro");
+                    investigacaoEncerrada = true;
+                    messageInput.disabled = true;
+                    sendButton.disabled = true;
+                    window.setTimeout(() => {
+                        investigacaoEncerrada = false;
+                        mostrarBadEnding();
+                    }, 1500);
+                    return;
+                }
+
+                atualizarEstadoDeFalhas();
+            }
+
+            setTimeout(() => {
+                if (!investigacaoEncerrada) messageInput.focus();
+            }, 100);
+        }
+
+        messageForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            enviarMensagem();
+        });
+
+
+        setTimeout(() => {
+            if (messageInput) messageInput.focus();
+        }, 5000);
+
+    </script>
+
+</body>
+
+</html>

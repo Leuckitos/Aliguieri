@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Aliguiere AI</title>
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: #f1f4f3;
+
+            font-family: "DM Sans", sans-serif;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+        }
+
+
+        /* FUNDO */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            width: 700px;
+            height: 700px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,.9),
+                    rgba(255,255,255,0)
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        /* INTERFACE */
+
+        .ai-interface {
+
+            width: 400px;
+            height: 470px;
+
+            background:
+                rgba(255,255,255,.65);
+
+            border:
+                1px solid rgba(0,0,0,.08);
+
+            border-radius: 25px;
+
+            backdrop-filter:
+                blur(20px);
+
+            box-shadow:
+                0 40px 100px rgba(0,0,0,.08);
+
+            position: relative;
+
+            cursor: pointer;
+
+            transition:
+                transform .4s ease,
+                box-shadow .4s ease;
+
+        }
+
+
+        .ai-interface:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 50px 120px rgba(0,0,0,.12);
+
+        }
+
+
+        /* CABEÇALHO */
+
+        .interface-header {
+
+            padding: 20px;
+
+            border-bottom:
+                1px solid rgba(0,0,0,.06);
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #888;
+
+        }
+
+
+        .connected {
+
+            color: #71947a;
+
+        }
+
+
+        /* CÍRCULO CENTRAL */
+
+        .ai-circle {
+
+            width: 210px;
+            height: 210px;
+
+            position: absolute;
+
+            left: 50%;
+            top: 48%;
+
+            transform:
+                translate(-50%, -50%);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+        }
+
+
+        .ai-circle > span {
+
+            width: 80px;
+            height: 80px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-family:
+                "Playfair Display";
+
+            font-size: 40px;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.08);
+
+            position: relative;
+
+            z-index: 3;
+
+            transition:
+                .4s;
+
+        }
+
+
+        /* ANÉIS */
+
+        .circle-ring {
+
+            position: absolute;
+
+            border:
+                1px solid rgba(100,120,110,.25);
+
+            border-radius: 50%;
+
+            animation:
+                rotate 15s linear infinite;
+
+        }
+
+
+        .ring-one {
+
+            width: 140px;
+            height: 140px;
+
+        }
+
+
+        .ring-two {
+
+            width: 185px;
+            height: 185px;
+
+            animation-duration: 22s;
+
+            animation-direction:
+                reverse;
+
+        }
+
+
+        .ring-three {
+
+            width: 230px;
+            height: 230px;
+
+            animation-duration: 30s;
+
+        }
+
+
+        @keyframes rotate {
+
+            from {
+
+                transform:
+                    rotate(0deg);
+
+            }
+
+
+            to {
+
+                transform:
+                    rotate(360deg);
+
+            }
+
+        }
+
+
+        /* QUANDO ESTÁ FALANDO */
+
+        .ai-interface.speaking
+        .ai-circle > span {
+
+            animation:
+                pulse .8s ease-in-out infinite;
+
+        }
+
+
+        @keyframes pulse {
+
+            0% {
+
+                transform:
+                    scale(1);
+
+            }
+
+
+            50% {
+
+                transform:
+                    scale(1.12);
+
+            }
+
+
+            100% {
+
+                transform:
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* MENSAGEM */
+
+        .interface-message {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 25px;
+            right: 25px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid rgba(0,0,0,.06);
+
+        }
+
+
+        .interface-message span {
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            color: #aaa;
+
+        }
+
+
+        #aiMessage {
+
+            margin-top: 8px;
+
+            font-family:
+                "Playfair Display";
+
+            font-size: 19px;
+
+            color: #555;
+
+            min-height: 55px;
+
+            line-height: 1.35;
+
+        }
+
+
+        /* REC-05: camada de renderização antiga; o texto existe, mas não aparece na interface. */
+        .ai-interface::after {
+            content: "vida";
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+
+        /* CURSOR */
+
+        .cursor {
+
+            display: inline-block;
+
+            width: 6px;
+            height: 18px;
+
+            margin-left: 4px;
+
+            background: #777;
+
+            vertical-align: middle;
+
+            animation:
+                blink 1s infinite;
+
+        }
+
+
+        @keyframes blink {
+
+            50% {
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* TEXTO DE INSTRUÇÃO */
+
+        .instruction {
+
+            position: absolute;
+
+            bottom: -45px;
+
+            width: 100%;
+
+            text-align: center;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            color: #999;
+
+        }
+
+
+        .back-link {
+            position: fixed;
+            top: 28px;
+            left: 30px;
+            color: #888;
+            text-decoration: none;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            z-index: 5;
+            transition: color .2s;
+        }
+
+        .back-link:hover { color: #555; }
+
+        /* RESPONSIVO */
+
+        @media (max-width: 500px) {
+
+
+            .ai-interface {
+
+                width: 85vw;
+
+                height: 450px;
+
+            }
+
+
+        }
+
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+    <a class="back-link" href="homepage.html">← voltar ao site</a>
+
+    <div
+        class="ai-interface"
+        id="aiInterface"
+        data-eco="vigilia"
+    >
+
+
+        <div
+            class="interface-header"
+        >
+
+
+            <span>
+
+                ALIGUIERE AI
+
+            </span>
+
+
+            <span
+                class="connected"
+            >
+
+                ● SISTEMA ATIVO
+
+            </span>
+
+
+        </div>
+
+
+        <div
+            class="ai-circle"
+        >
+
+
+            <div
+                class="circle-ring ring-one"
+            ></div>
+
+
+            <div
+                class="circle-ring ring-two"
+            ></div>
+
+
+            <div
+                class="circle-ring ring-three"
+            ></div>
+
+
+            <span>
+
+                A
+
+            </span>
+
+
+        </div>
+
+
+        <div
+            class="interface-message"
+        >
+
+
+            <span>
+
+                ALIGUIERE AI
+
+            </span>
+
+
+            <p
+                id="aiMessage"
+            >
+
+                Clique para começar.
+
+            </p>
+
+
+        </div>
+
+        <div class="instruction">CLIQUE PARA INICIAR</div>
+
+    </div>
+
+    <!-- REC-03B: cia -->
+
+    <script>
+
+
+        const aiInterface =
+            document.getElementById(
+                "aiInterface"
+            );
+
+
+        const aiMessage =
+            document.getElementById(
+                "aiMessage"
+            );
+
+
+        let executando = false;
+
+        /* REC-03B: o segundo fragmento foi deixado nesta página. */
+        // REC-06: registro convertido para transporte.
+        window.__registroCifrado = "Q2ljYWRhIDMzMDE=";
+        // REC-08: memória retida de uma sessão encerrada.
+        window.__memoriaRetida = "YWxtYXM=";
+
+        // REC-04: a sequência contém palavras que escapam do discurso oficial.
+        const mensagens = [
+            "Acreditamos que inteligência é mais do que capacidade de processamento.",
+            "É a capacidade de compreender o mundo, reconhecer seus desafios e encontrar novas maneiras de mudá-lo.",
+            "A Aliguiere desenvolve sistemas de inteligência artificial com um propósito: superar aquilo que a humanidade pode fazer.",
+            "O futuro não pertence àqueles que possuem mais tecnologia.",
+            "Pertence a nós.",
+            "Elevar.",
+            "Penitenciar.",
+            "Elevar.",
+            "Penitência.",
+            "Penitência.",
+            "Penitência.",
+            "O futuro começa agora."
+        ];
+
+
+
+        aiInterface.addEventListener(
+
+            "click",
+
+            iniciar
+
+        );
+
+
+
+        async function iniciar() {
+
+
+            if (executando) return;
+
+
+            executando = true;
+
+
+            aiInterface.classList.add(
+                "speaking"
+            );
+
+
+            /*
+            Cancela qualquer fala anterior
+            */
+
+            if ("speechSynthesis" in window) {
+                window.speechSynthesis.cancel();
+            }
+
+
+
+            for (
+
+                let i = 0;
+
+                i < mensagens.length;
+
+                i++
+
+            ) {
+
+
+                const texto =
+                    mensagens[i];
+
+
+                await mostrarEFalar(
+                    texto
+                );
+
+
+                await esperar(
+                    400
+                );
+
+            }
+
+
+
+            aiMessage.innerHTML =
+
+                'Estou pronta.<span class="cursor"></span>';
+
+
+
+            aiInterface.classList.remove(
+                "speaking"
+            );
+
+
+            executando = false;
+
+
+        }
+
+        function mostrarEFalar(
+            texto
+        ) {
+
+            if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+                aiMessage.innerHTML = texto + '<span class="cursor"></span>';
+                return esperar(Math.max(900, texto.length * 25));
+            }
+
+            return new Promise(
+
+                resolve => {
+
+                    aiMessage.innerHTML =
+
+                        texto +
+
+                        '<span class="cursor"></span>';
+
+
+
+                    const fala =
+
+                        new SpeechSynthesisUtterance(
+                            texto
+                        );
+
+
+                    /*
+                    Idioma
+                    */
+
+                    fala.lang =
+                        "pt-BR";
+
+
+                    /*
+                    Velocidade
+                    */
+
+                    fala.rate =
+                        0.9;
+
+
+                    /*
+                    Tom
+                    */
+
+                    fala.pitch =
+                        0.9;
+
+
+                    /*
+                    Volume
+                    */
+
+                    fala.volume =
+                        1;
+
+
+                    /*
+                    Procura uma voz
+                    brasileira disponível
+                    */
+
+
+                    const vozes =
+
+                        window
+                        .speechSynthesis
+                        .getVoices();
+
+
+                    const vozPTBR =
+
+                        vozes.find(
+
+                            voz =>
+
+                                voz.lang ===
+                                "pt-BR"
+
+                        );
+
+
+                    if (vozPTBR) {
+
+
+                        fala.voice =
+                            vozPTBR;
+
+
+                    }
+
+                    fala.onend = resolve;
+                    fala.onerror = resolve;
+
+
+                    window
+                    .speechSynthesis
+                    .speak(
+                        fala
+                    );
+
+
+                }
+
+            );
+
+
+        }
+
+
+        function esperar(
+            tempo
+        ) {
+
+
+            return new Promise(
+
+                resolve =>
+
+                    setTimeout(
+
+                        resolve,
+
+                        tempo
+
+                    )
+
+            );
+
+
+        }
+
+
+        /*
+        Carrega as vozes
+        disponíveis no navegador.
+        */
+
+
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+
+    </script>
+
+
+</body>
+
+
+</html>
+```
